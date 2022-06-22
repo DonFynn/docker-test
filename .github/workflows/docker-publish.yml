@@ -102,7 +102,7 @@ jobs:
           docker run $container
           
         env:
-          container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
