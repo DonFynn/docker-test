@@ -91,6 +91,12 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           platforms: ${{ env.PLATFORMS }}
 
+      - name: run container
+        run: |
+          docker run $images
+        env:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
       # repository is public to avoid leaking data.  If you would like to publish
