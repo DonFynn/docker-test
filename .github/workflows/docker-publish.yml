@@ -97,6 +97,8 @@ jobs:
           docker image ls
           docker pull ghcr.io/donnels/buildx-test:main
           docker image ls
+          docker inspect ghcr.io/donnels/buildx-test:main
+          docker manifest inspect ghcr.io/donnels/buildx-test:main
           
         env:
           container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
