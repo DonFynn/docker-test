@@ -105,4 +105,5 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: |
           cosign --help
+          cosign sign --help
           #cosign sign --force ${{ steps.meta.outputs.tags }}@${{ steps.build-and-push.outputs.digest }}
