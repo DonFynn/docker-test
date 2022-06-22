@@ -95,6 +95,8 @@ jobs:
         run: |
           docker image ls
           cd docker
+          docker inspect $container
+          docker manifest inspect $container
           docker pull $container
           docker image ls
           docker run $container
