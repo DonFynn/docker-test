@@ -51,7 +51,7 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v2   
         with:
-          install: false
+          install: true
         
       - name: Inspect builder
         run: |
@@ -99,6 +99,10 @@ jobs:
           cd docker
           docker build -t test .
           docker image ls
+          docker run test
+          #docker build --platform linux/amd64,linux/arm64 -t test .
+          #docker image ls
+          #docker run test
         env:
           container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
 
