@@ -100,9 +100,9 @@ jobs:
           docker build -t test .
           docker image ls
           docker run test
-          docker buildx build --platform linux/amd64,linux/arm64 -t test .
+          docker buildx build --load --platform linux/amd64,linux/arm64 -t test1 .
           docker image ls
-          #docker run test
+          #docker run test1
         env:
           container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
 
