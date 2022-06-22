@@ -93,13 +93,10 @@ jobs:
 
       - name: run container
         run: |
+          echo "$container"
           docker image ls
-          cd docker
-          docker inspect $container
-          docker manifest inspect $container
-          docker pull $container
+          docker pull ghcr.io/donnels/buildx-test:main
           docker image ls
-          docker run $container
           
         env:
           container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
