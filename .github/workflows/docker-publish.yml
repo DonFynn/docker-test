@@ -95,9 +95,9 @@ jobs:
         run: |
           docker image ls
           cd docker
-          docker build --platform linux/amd64,linux/arm64 -t test .
+          docker build --platform linux/amd64,linux/arm64 -t test:latest .
           docker image ls
-          docker run test
+          docker run test:latest
           
         env:
           container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
