@@ -82,19 +82,11 @@ jobs:
         run: |
           echo "$container"
           docker image ls
-          docker pull %container
+          docker pull $container
           docker image ls
-          docker inspect %container
-          docker manifest inspect %container
-          docker run %container
-          cd docker
-          docker build -t test .
-          docker image ls
-          docker run test
-          docker buildx build --platform ${{ env.PLATFORMS }} -t test1 .
-          docker buildx build --load -t test1 .
-          docker image ls
-          docker run test1
+          docker inspect $container
+          docker manifest inspect $container
+          docker run $container
         env:
           container: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
 
